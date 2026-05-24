@@ -40,6 +40,19 @@ const server = http.createServer((req, res) => {
   }
 
   fs.stat(filePath, (err, stat) => {
+    // If URL points at a directory, try {dir}/index.html
+    if (!err && stat.isDirectory()) {
+      const indexFile = path.join(filePath, 'index.html');
+      fs.readFile(indexFile, (err2, data) => {
+        if (err2) { res.writeHead(404); res.end('Not found'); return; }
+        res.writeHead(200, {
+          'Content-Type': 'text/html; charset=utf-8',
+          'Cache-Control': 'no-cache',
+        });
+        res.end(data);
+      });
+      return;
+    }
     if (err || !stat.isFile()) {
       // SPA fallback - serve index.html for unknown routes
       const fallback = path.join(ROOT, 'index.html');
