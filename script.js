@@ -20,14 +20,17 @@
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
+    }, { threshold: 0.01, rootMargin: '0px 0px 100px 0px' });
 
     revealTargets.forEach(el => io.observe(el));
-    if (heroHeadline) io.observe(heroHeadline);
   } else {
     revealTargets.forEach(el => el.classList.add('is-visible'));
-    if (heroHeadline) heroHeadline.classList.add('is-visible');
   }
+
+  // Hero headline always reveals on load (don't trust IO for above-the-fold)
+  requestAnimationFrame(() => {
+    if (heroHeadline) heroHeadline.classList.add('is-visible');
+  });
 
   /* ---------- Page counter (updates on scroll) ---------- */
   const counterEl = document.getElementById('counter-current');

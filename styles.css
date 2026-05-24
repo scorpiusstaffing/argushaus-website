@@ -5,8 +5,9 @@
 :root {
   --bg:     #EFEBE1;
   --ink:    #0A0A0C;
-  --muted:  #6B665D;
-  --line:   #D5CFC0;
+  --muted:  #4A463F;   /* darker for WCAG AA contrast on cream */
+  --faint:  #8A857B;   /* really light, only for tertiary labels */
+  --line:   #C9C2B0;
   --red:    #C8362A;
 
   --sans: 'Switzer', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
@@ -130,8 +131,7 @@ ul, ol { list-style: none; }
 .align-bottom {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  min-height: 60vh;
+  justify-content: center;
 }
 
 /* ---------- HERO ---------- */
@@ -150,12 +150,12 @@ ul, ol { list-style: none; }
 .hero-headline {
   font-family: var(--sans);
   font-weight: 500;
-  font-size: clamp(2.4rem, 8.5vw, 7.5rem);
-  line-height: 0.95;
+  font-size: clamp(2.2rem, 5.6vw, 5rem);
+  line-height: 1.02;
   letter-spacing: -0.035em;
   color: var(--ink);
-  margin-bottom: 3rem;
-  max-width: 16ch;
+  margin-bottom: 2.25rem;
+  max-width: 18ch;
 }
 
 .hero-headline .line {
@@ -164,8 +164,9 @@ ul, ol { list-style: none; }
 }
 
 .hero-headline .line--muted {
-  color: var(--muted);
+  color: var(--ink);
   font-weight: 400;
+  opacity: 0.55;
 }
 
 .hero-cities {
@@ -239,12 +240,12 @@ ul, ol { list-style: none; }
 .display {
   font-family: var(--sans);
   font-weight: 500;
-  font-size: clamp(2.2rem, 6.5vw, 5.5rem);
-  line-height: 0.98;
-  letter-spacing: -0.035em;
+  font-size: clamp(2rem, 5vw, 4.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
   color: var(--ink);
-  margin-bottom: 2.5rem;
-  max-width: 14ch;
+  margin-bottom: 2rem;
+  max-width: 16ch;
 }
 
 .body-line {
@@ -315,12 +316,12 @@ ul, ol { list-style: none; }
 .cities-stack li {
   font-family: var(--sans);
   font-weight: 500;
-  font-size: clamp(2.5rem, 8vw, 6.5rem);
-  line-height: 1.05;
+  font-size: clamp(2rem, 5.5vw, 4.5rem);
+  line-height: 1.1;
   letter-spacing: -0.03em;
   color: var(--ink);
   position: relative;
-  padding: 0.4rem 0;
+  padding: 0.6rem 0;
   border-bottom: 1px solid var(--line);
   display: flex;
   justify-content: space-between;
