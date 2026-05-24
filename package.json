@@ -1,0 +1,13 @@
+{
+  "name": "argushaus-website",
+  "version": "1.0.0",
+  "description": "Argushaus — senior AI talent for European consultancies",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {}
+}
