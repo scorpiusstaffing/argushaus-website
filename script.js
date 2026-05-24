@@ -32,6 +32,20 @@
     if (heroHeadline) heroHeadline.classList.add('is-visible');
   });
 
+  /* Hide page counter when footer is in view (avoid overlap) */
+  const counter = document.querySelector('.counter');
+  const footer  = document.querySelector('.foot');
+  if (counter && footer && 'IntersectionObserver' in window) {
+    const footerIO = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        counter.style.opacity = entry.isIntersecting ? '0' : '1';
+        counter.style.transition = 'opacity 0.35s ease';
+        counter.style.pointerEvents = entry.isIntersecting ? 'none' : 'auto';
+      });
+    }, { threshold: 0.05 });
+    footerIO.observe(footer);
+  }
+
   /* ---------- Page counter (updates on scroll) ---------- */
   const counterEl = document.getElementById('counter-current');
   const screens   = Array.from(document.querySelectorAll('.screen[data-index]'));
