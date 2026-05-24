@@ -1,32 +1,32 @@
-/* Argushaus — minimal scroll-reveal */
+/* Argushaus — minimal scroll-reveal & nav behavior */
 (function () {
   'use strict';
 
-  // Add .reveal to all hero & section content that should fade in
   const revealTargets = document.querySelectorAll(
-    '.hero-meta, .hero-title, .hero-sub, .hero-cities, .hero-cta, ' +
-    '.section .col-left, .section .col-right, ' +
-    '.cities-header, .city, .contact-block'
+    '.hero-meta, .hero-title, .hero-sub, .hero-cta, ' +
+    '.stat, .section-head, .display-h2, .lead-text, ' +
+    '.body-prose, .value-item, .city-row, .method-step, .contact-card'
   );
   revealTargets.forEach(el => el.classList.add('reveal'));
 
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
+          // Tiny stagger for visual rhythm
+          const delay = Math.min(i * 30, 200);
+          setTimeout(() => entry.target.classList.add('is-visible'), delay);
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+    }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
 
     revealTargets.forEach(el => io.observe(el));
   } else {
-    // Fallback: just show everything
     revealTargets.forEach(el => el.classList.add('is-visible'));
   }
 
-  // Smooth anchor scrolling (older Safari fallback)
+  // Smooth anchor scroll
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', (e) => {
       const id = link.getAttribute('href');
@@ -34,7 +34,8 @@
       const target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const top = target.getBoundingClientRect().top + window.pageYOffset - 60;
+      window.scrollTo({ top, behavior: 'smooth' });
     });
   });
 })();
