@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Argushaus</title>
-<meta name="description" content="Senior AI talent. German consultancies. Quietly connected." />
+<title>Argushaus &middot; Coming soon</title>
+<meta name="description" content="Argushaus. Senior AI talent for German boutique AI consultancies. Site coming soon." />
 <meta name="theme-color" content="#EFEBE1" />
+<meta name="robots" content="noindex" />
 
 <meta property="og:title" content="Argushaus" />
 <meta property="og:description" content="Senior AI talent. German consultancies. Quietly connected." />
@@ -16,117 +17,176 @@
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-<link rel="stylesheet" href="/styles.css" />
 <link rel="icon" type="image/svg+xml" href="/logo/argushaus-favicon.svg" />
 <link rel="apple-touch-icon" href="/logo/png/favicon-180.png" />
+
+<style>
+  :root {
+    --ink: #0A0A0C;
+    --cream: #E8E2D4;
+    --cream-dk: #D6CFBE;
+    --muted: #5A5852;
+    --red: #C8362A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    height: 100%;
+    background: linear-gradient(135deg, var(--cream-dk) 0%, var(--cream) 60%);
+    color: var(--ink);
+    font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 32px 24px;
+  }
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--ink);
+    opacity: 0.7;
+  }
+  .stage {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 48px 0;
+  }
+  .wordmark {
+    font-family: 'Switzer', sans-serif;
+    font-weight: 700;
+    font-size: clamp(56px, 12vw, 144px);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .wordmark .dot {
+    color: var(--red);
+  }
+  .tag {
+    margin-top: 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--ink);
+    opacity: 0.7;
+  }
+  .status {
+    margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  .status-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+  .status-line {
+    font-family: 'Switzer', sans-serif;
+    font-weight: 500;
+    font-size: clamp(20px, 2.8vw, 28px);
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    max-width: 640px;
+  }
+  .status-cities {
+    margin-top: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink);
+    opacity: 0.6;
+  }
+  .bottom a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    transition: opacity 0.2s;
+  }
+  .bottom a:hover {
+    opacity: 0.6;
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 16px; }
+    .top, .bottom {
+      font-size: 9px;
+      letter-spacing: 1.8px;
+    }
+    .bottom {
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .status-cities {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+    }
+    .status { margin-top: 40px; }
+  }
+</style>
 </head>
 <body>
 
-<header class="nav">
-  <a href="#top" class="brand">
-    <span>Argushaus</span><span class="brand-dot">.</span>
-  </a>
-  <a href="#contact" class="nav-cta">Brief us</a>
-</header>
+  <header class="top">
+    <span>Argushaus<span style="color: var(--red);">.</span></span>
+    <span>Est. 2026</span>
+  </header>
 
-<aside class="counter" aria-hidden="true">
-  <span id="counter-current">01</span><span class="counter-slash"> / </span><span class="counter-total">05</span>
-</aside>
+  <main class="stage">
+    <h1 class="wordmark">Argushaus<span class="dot">.</span></h1>
+    <p class="tag">Senior AI Talent</p>
 
-<main id="top">
-
-  <!-- 01 — HERO -->
-  <section class="screen hero" data-index="01">
-    <div class="screen-inner">
-      <h1 class="hero-headline">
-        <span class="line">Senior AI talent.</span>
-        <span class="line">German consultancies.</span>
-        <span class="line line--muted">Quietly connected.</span>
-      </h1>
-      <p class="hero-cities">
-        Munich &middot; Berlin &middot; Frankfurt &middot; Düsseldorf &middot; Cologne &middot; Hamburg
-      </p>
+    <div class="status">
+      <span class="status-label">/ Under construction</span>
+      <p class="status-line">Our site is being built. For mandates or introductions, write to us directly.</p>
+      <p class="status-cities">München · Berlin · Frankfurt · Düsseldorf · Köln · Hamburg</p>
     </div>
-    <div class="scroll-cue" aria-hidden="true">
-      <span>Scroll</span>
-      <span class="cue-line"></span>
-    </div>
-  </section>
+  </main>
 
-  <!-- 02 — CLIENTS -->
-  <section class="screen" data-index="02" id="clients">
-    <div class="screen-inner align-bottom">
-      <span class="label">02 / For consultancies</span>
-      <h2 class="display">Hire senior. Move fast.</h2>
-      <p class="body-line">
-        We map the German market continuously. Shortlist within ten working days. Six-month replacement guarantee.
-      </p>
-      <a href="mailto:clients@argushaus.com?subject=Search%20brief" class="link-underline">Brief us</a>
-    </div>
-  </section>
+  <footer class="bottom">
+    <a href="mailto:hello@argushaus.com">hello@argushaus.com</a>
+    <span>Part of the Scorpius Search group</span>
+  </footer>
 
-  <!-- 03 — TALENT -->
-  <section class="screen" data-index="03" id="talent">
-    <div class="screen-inner align-bottom">
-      <span class="label">03 / For senior talent</span>
-      <h2 class="display">Quiet introductions.</h2>
-      <p class="body-line">
-        A confidential channel into Germany's best boutique AI consultancies. No public boards. No noise.
-      </p>
-      <a href="mailto:network@argushaus.com?subject=Network%20application" class="link-underline">Join the network</a>
-    </div>
-  </section>
-
-  <!-- 04 — CITIES -->
-  <section class="screen screen-cities" data-index="04" id="cities">
-    <div class="screen-inner">
-      <span class="label">04 / Cities</span>
-      <ul class="cities-stack">
-        <li>Munich</li>
-        <li>Berlin</li>
-        <li>Frankfurt</li>
-        <li>Düsseldorf &middot; Cologne</li>
-        <li>Hamburg</li>
-      </ul>
-      <p class="cities-note">Boutique AI consultancies, fifty to five hundred people.</p>
-    </div>
-  </section>
-
-  <!-- 05 — CONTACT -->
-  <section class="screen screen-contact" data-index="05" id="contact">
-    <div class="screen-inner">
-      <span class="label">05 / Contact</span>
-      <h2 class="display">Speak with the operator.</h2>
-      <ul class="contact-list">
-        <li>
-          <a href="mailto:clients@argushaus.com">clients@argushaus.com</a>
-          <span>For consultancies</span>
-        </li>
-        <li>
-          <a href="mailto:network@argushaus.com">network@argushaus.com</a>
-          <span>For senior talent</span>
-        </li>
-        <li>
-          <a href="mailto:hello@argushaus.com">hello@argushaus.com</a>
-          <span>General</span>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-</main>
-
-<footer class="foot">
-  <span class="foot-brand">Argushaus<span class="brand-dot">.</span></span>
-  <span class="foot-meta">© 2026 &nbsp;·&nbsp; <a href="/logo/">Brand kit</a> &nbsp;·&nbsp; <a href="#imprint">Imprint</a> &nbsp;·&nbsp; <a href="#privacy">Privacy</a></span>
-</footer>
-
-<script src="/script.js" defer></script>
 </body>
 </html>
