@@ -50,7 +50,7 @@
         <span class="line line--muted">Quietly connected.</span>
       </h1>
       <p class="hero-cities">
-        Munich &middot; Berlin &middot; Frankfurt &middot; Düsseldorf &middot; Cologne &middot; Hamburg
+        Munich &middot; Berlin &middot; Frankfurt &middot; Düsseldorf &middot; Cologne &middot; Hamburg &middot; Amsterdam &middot; Rotterdam &middot; Utrecht &middot; The Hague &middot; Eindhoven
       </p>
     </div>
     <div class="scroll-cue" aria-hidden="true">
@@ -93,8 +93,13 @@
         <li>Frankfurt</li>
         <li>Düsseldorf &middot; Cologne</li>
         <li>Hamburg</li>
+        <li>Amsterdam</li>
+        <li>Rotterdam</li>
+        <li>Utrecht</li>
+        <li>The Hague</li>
+        <li>Eindhoven</li>
       </ul>
-      <p class="cities-note">Boutique AI consultancies, fifty to five hundred people.</p>
+      <p class="cities-note">Boutique AI consultancies across Germany and the Netherlands.</p>
     </div>
   </section>
 
