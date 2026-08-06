@@ -2,15 +2,16 @@
 (function () {
   'use strict';
 
-  /* ---------- Reveal animations ---------- */
   const revealTargets = document.querySelectorAll(
     '.label, .display, .body-line, .link-underline, ' +
-    '.cities-stack, .cities-note, .contact-list, .hero-cities'
+    '.wordmark-tag, .wordmark-tagline, .hero-cities, ' +
+    '.pool, .pillars, .mandates, .timeline, ' +
+    '.cities-stack, .cities-note, ' +
+    '.about-terms, .contact-stack, .cta-row'
   );
   revealTargets.forEach(el => el.classList.add('reveal'));
 
-  // Hero headline is special-cased in CSS via .is-visible class
-  const heroHeadline = document.querySelector('.hero-headline');
+  const wordmark = document.querySelector('.wordmark');
 
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
@@ -27,41 +28,15 @@
     revealTargets.forEach(el => el.classList.add('is-visible'));
   }
 
-  // Hero headline always reveals on load (don't trust IO for above-the-fold)
   requestAnimationFrame(() => {
-    if (heroHeadline) heroHeadline.classList.add('is-visible');
+    if (wordmark) wordmark.classList.add('is-visible');
   });
 
-  /* Hide page counter when footer is in view (avoid overlap) */
-  const counter = document.querySelector('.counter');
-  const footer  = document.querySelector('.foot');
-  if (counter && footer && 'IntersectionObserver' in window) {
-    const footerIO = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        counter.style.opacity = entry.isIntersecting ? '0' : '1';
-        counter.style.transition = 'opacity 0.35s ease';
-        counter.style.pointerEvents = entry.isIntersecting ? 'none' : 'auto';
-      });
-    }, { threshold: 0.05 });
-    footerIO.observe(footer);
-  }
-
-  /* ---------- Page counter (updates on scroll) ---------- */
   const counterEl = document.getElementById('counter-current');
   const screens   = Array.from(document.querySelectorAll('.screen[data-index]'));
 
   if (counterEl && screens.length && 'IntersectionObserver' in window) {
-    const counterIO = new IntersectionObserver((entries) => {
-      // Find the most-visible screen
-      let bestRatio = 0;
-      let bestIndex = counterEl.textContent;
-      entries.forEach(entry => {
-        if (entry.intersectionRatio > bestRatio) {
-          bestRatio = entry.intersectionRatio;
-          bestIndex = entry.target.getAttribute('data-index');
-        }
-      });
-      // Cross-check all screens to find current most-visible
+    const counterIO = new IntersectionObserver(() => {
       const currentBest = screens
         .map(s => {
           const rect = s.getBoundingClientRect();
@@ -81,7 +56,6 @@
     screens.forEach(s => counterIO.observe(s));
   }
 
-  /* ---------- Smooth anchor scroll (offset for fixed nav) ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', (e) => {
       const id = link.getAttribute('href');

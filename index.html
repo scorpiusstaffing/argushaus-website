@@ -3,13 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Argushaus &middot; Coming soon</title>
-<meta name="description" content="Argushaus. Senior AI talent for German boutique AI consultancies. Site coming soon." />
-<meta name="theme-color" content="#EFEBE1" />
-<meta name="robots" content="noindex" />
+<title>Argushaus</title>
+<meta name="description" content="Senior AI talent for boutique AI consultancies in Germany and the Netherlands. Shortlist in seven days, placement in twenty-eight." />
+<meta name="theme-color" content="#E8E2D4" />
 
 <meta property="og:title" content="Argushaus" />
-<meta property="og:description" content="Senior AI talent. German consultancies. Quietly connected." />
+<meta property="og:description" content="Senior AI talent for boutique AI consultancies in Germany and the Netherlands." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://argushaus.com" />
 <meta property="og:image" content="/logo/png/argushaus-og-1200x630.png" />
@@ -17,177 +16,324 @@
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 
-<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
-<link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700&display=swap" rel="stylesheet" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700&display=swap" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
+<link rel="stylesheet" href="/styles.css" />
 <link rel="icon" type="image/svg+xml" href="/logo/argushaus-favicon.svg" />
 <link rel="apple-touch-icon" href="/logo/png/favicon-180.png" />
-
-<style>
-  :root {
-    --ink: #0A0A0C;
-    --cream: #E8E2D4;
-    --cream-dk: #D6CFBE;
-    --muted: #5A5852;
-    --red: #C8362A;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body {
-    height: 100%;
-    background: linear-gradient(135deg, var(--cream-dk) 0%, var(--cream) 60%);
-    color: var(--ink);
-    font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    padding: 32px 24px;
-  }
-  .top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: var(--ink);
-    opacity: 0.7;
-  }
-  .stage {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 48px 0;
-  }
-  .wordmark {
-    font-family: 'Switzer', sans-serif;
-    font-weight: 700;
-    font-size: clamp(56px, 12vw, 144px);
-    letter-spacing: -0.03em;
-    line-height: 1;
-    color: var(--ink);
-  }
-  .wordmark .dot {
-    color: var(--red);
-  }
-  .tag {
-    margin-top: 28px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--ink);
-    opacity: 0.7;
-  }
-  .status {
-    margin-top: 64px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-  }
-  .status-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--red);
-  }
-  .status-line {
-    font-family: 'Switzer', sans-serif;
-    font-weight: 500;
-    font-size: clamp(20px, 2.8vw, 28px);
-    letter-spacing: -0.01em;
-    color: var(--ink);
-    max-width: 640px;
-  }
-  .status-cities {
-    margin-top: 8px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    color: var(--muted);
-    text-transform: uppercase;
-    line-height: 1.8;
-  }
-  .bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--ink);
-    opacity: 0.6;
-  }
-  .bottom a {
-    color: inherit;
-    text-decoration: none;
-    border-bottom: 1px solid currentColor;
-    padding-bottom: 2px;
-    transition: opacity 0.2s;
-  }
-  .bottom a:hover {
-    opacity: 0.6;
-  }
-  @media (max-width: 640px) {
-    body { padding: 20px 16px; }
-    .top, .bottom {
-      font-size: 9px;
-      letter-spacing: 1.8px;
-    }
-    .bottom {
-      flex-direction: column;
-      gap: 12px;
-      align-items: flex-start;
-    }
-    .status-cities {
-      font-size: 10px;
-      letter-spacing: 1.5px;
-    }
-    .status { margin-top: 40px; }
-  }
-</style>
 </head>
 <body>
 
-  <header class="top">
-    <span>Argushaus<span style="color: var(--red);">.</span></span>
-    <span>Est. 2026</span>
-  </header>
+<header class="fixtop">
+  <a href="#top" class="brand-mini">Argushaus<span class="brand-dot">.</span></a>
+  <span class="fixtop-est">Est. 2026</span>
+</header>
 
-  <main class="stage">
-    <h1 class="wordmark">Argushaus<span class="dot">.</span></h1>
-    <p class="tag">Senior AI Talent</p>
+<aside class="counter" aria-hidden="true">
+  <span id="counter-current">01</span><span class="counter-slash"> / </span><span class="counter-total">07</span>
+</aside>
 
-    <div class="status">
-      <span class="status-label">/ Under construction</span>
-      <p class="status-line">Our site is being built. For mandates or introductions, write to us directly.</p>
-      <p class="status-cities">München · Berlin · Frankfurt · Düsseldorf · Köln · Hamburg<br/>Amsterdam · Rotterdam · Utrecht · Den&nbsp;Haag · Eindhoven</p>
+<main id="top">
+
+  <!-- 01 — HERO -->
+  <section class="screen hero" data-index="01">
+    <div class="screen-inner">
+      <h1 class="wordmark">Argushaus<span class="red-block">.</span></h1>
+      <p class="wordmark-tag">Senior AI talent</p>
+      <p class="wordmark-tagline">
+        For AI consultancies and AI talent in Germany and the Netherlands. Quietly connected.
+      </p>
+      <p class="hero-cities">
+        München &middot; Berlin &middot; Frankfurt &middot; Düsseldorf &middot; Köln &middot; Hamburg<br/>
+        Amsterdam &middot; Rotterdam &middot; Utrecht &middot; Den&nbsp;Haag &middot; Eindhoven
+      </p>
     </div>
-  </main>
+    <div class="scroll-cue" aria-hidden="true">
+      <span>Scroll</span>
+      <span class="cue-line"></span>
+    </div>
+  </section>
 
-  <footer class="bottom">
-    <a href="mailto:contact@argushaus.com">contact@argushaus.com</a>
-    <span>Part of the Scorpius Search group</span>
-  </footer>
+  <!-- 02 — FOR CONSULTANCIES -->
+  <section class="screen" data-index="02" id="clients">
+    <div class="screen-inner">
+      <span class="label">02 / For consultancies</span>
+      <h2 class="display">Hire senior. Move fast.</h2>
+      <p class="body-line">
+        A live talent pool of more than nine thousand senior AI professionals across Germany and the Netherlands. Boutique focused. Continuously mapped.
+      </p>
 
+      <!-- Pool visualization -->
+      <figure class="pool">
+        <div class="pool-total">
+          <span class="pool-num">9,338</span>
+          <span class="pool-caption">Senior AI professionals mapped across Germany and the Netherlands</span>
+        </div>
+        <div class="pool-agg" aria-hidden="true">
+          <span class="pool-agg-seg" style="width:83%"></span>
+          <span class="pool-agg-seg" style="width:6%"></span>
+          <span class="pool-agg-seg" style="width:11%"></span>
+        </div>
+        <ul class="pool-bars">
+          <li>
+            <span class="pool-tier">Individual contributors</span>
+            <span class="pool-count">7,744</span>
+            <span class="pool-pct">83<span class="pool-pct-mark">%</span></span>
+            <span class="pool-bar" style="--pct:83%"></span>
+          </li>
+          <li>
+            <span class="pool-tier">Team leads &middot; Practice Leads</span>
+            <span class="pool-count">539</span>
+            <span class="pool-pct">6<span class="pool-pct-mark">%</span></span>
+            <span class="pool-bar" style="--pct:6%"></span>
+          </li>
+          <li>
+            <span class="pool-tier">Directors &middot; Partners &middot; C-Suite</span>
+            <span class="pool-count">1,055</span>
+            <span class="pool-pct">11<span class="pool-pct-mark">%</span></span>
+            <span class="pool-bar" style="--pct:11%"></span>
+          </li>
+        </ul>
+        <figcaption class="pool-foot">
+          <span>Updated weekly &middot; Continuously mapped</span>
+          <span>DE 71<span class="pool-pct-mark">%</span> &middot; NL 29<span class="pool-pct-mark">%</span></span>
+        </figcaption>
+      </figure>
+
+      <!-- Pillars 4-col -->
+      <ul class="pillars">
+        <li>
+          <span class="pillar-num">7<span class="pillar-unit">days</span></span>
+          <span class="pillar-label">Shortlist</span>
+        </li>
+        <li>
+          <span class="pillar-num">28<span class="pillar-unit">days</span></span>
+          <span class="pillar-label">Placement</span>
+        </li>
+        <li>
+          <span class="pillar-num">25<span class="pillar-unit">%</span></span>
+          <span class="pillar-label">Fixed fee. No cure, no pay.</span>
+        </li>
+        <li>
+          <span class="pillar-num">0<span class="pillar-unit">retainer</span></span>
+          <span class="pillar-label">No exclusivity <span class="wink">;)</span></span>
+        </li>
+      </ul>
+
+      <div class="cta-row">
+        <a href="mailto:contact@argushaus.com?subject=Search%20brief" class="link-underline">Brief us</a>
+        <a href="https://calendly.com/scorpiussearch/discovery-meeting" class="link-underline" target="_blank" rel="noopener">Book a call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 — FOR SENIOR TALENT -->
+  <section class="screen" data-index="03" id="talent">
+    <div class="screen-inner">
+      <span class="label">03 / For senior talent</span>
+      <h2 class="display">Quiet introductions.</h2>
+      <p class="body-line">
+        A confidential channel into more than one hundred and fifty boutique AI consultancies in Germany and the Netherlands. Roles rarely posted on public boards. No CV shared without your consent.
+      </p>
+
+      <!-- Live mandate cards -->
+      <section class="mandates" aria-labelledby="mandates-head">
+        <header class="mandates-header">
+          <span id="mandates-head" class="mandates-title">The roles we place</span>
+          <span class="mandates-count">Typical searches &middot; indicative ranges</span>
+        </header>
+        <div class="mandates-grid">
+          <article class="mandate">
+            <header class="mandate-top">
+              <h3 class="mandate-role">Senior Applied AI Engineer</h3>
+            </header>
+            <ul class="mandate-chips">
+              <li>Berlin</li>
+              <li>&euro;95&ndash;120k</li>
+              <li>Hybrid</li>
+            </ul>
+            <a href="mailto:contact@argushaus.com?subject=Introduction" class="mandate-cta">Talk to us</a>
+          </article>
+          <article class="mandate">
+            <header class="mandate-top">
+              <h3 class="mandate-role">Practice Lead, Data &amp; AI</h3>
+            </header>
+            <ul class="mandate-chips">
+              <li>Munich</li>
+              <li>Partner-track</li>
+              <li>On-site</li>
+            </ul>
+            <a href="mailto:contact@argushaus.com?subject=Introduction" class="mandate-cta">Talk to us</a>
+          </article>
+          <article class="mandate">
+            <header class="mandate-top">
+              <h3 class="mandate-role">Senior LLM Engineer</h3>
+            </header>
+            <ul class="mandate-chips">
+              <li>Frankfurt</li>
+              <li>&euro;100&ndash;135k</li>
+              <li>Hybrid</li>
+            </ul>
+            <a href="mailto:contact@argushaus.com?subject=Introduction" class="mandate-cta">Talk to us</a>
+          </article>
+          <article class="mandate">
+            <header class="mandate-top">
+              <h3 class="mandate-role">Head of Data Science</h3>
+            </header>
+            <ul class="mandate-chips">
+              <li>Amsterdam</li>
+              <li>C-level</li>
+              <li>NDA on file</li>
+            </ul>
+            <a href="mailto:contact@argushaus.com?subject=Introduction" class="mandate-cta">Talk to us</a>
+          </article>
+          <article class="mandate">
+            <header class="mandate-top">
+              <h3 class="mandate-role">MLOps Engineer (GCP)</h3>
+            </header>
+            <ul class="mandate-chips">
+              <li>Cologne</li>
+              <li>&euro;85&ndash;105k</li>
+              <li>Hybrid</li>
+            </ul>
+            <a href="mailto:contact@argushaus.com?subject=Introduction" class="mandate-cta">Talk to us</a>
+          </article>
+          <article class="mandate">
+            <header class="mandate-top">
+              <h3 class="mandate-role">AI Solution Architect</h3>
+            </header>
+            <ul class="mandate-chips">
+              <li>Utrecht</li>
+              <li>&euro;90&ndash;115k</li>
+              <li>Remote-friendly</li>
+            </ul>
+            <a href="mailto:contact@argushaus.com?subject=Introduction" class="mandate-cta">Talk to us</a>
+          </article>
+        </div>
+      </section>
+
+      <div class="cta-row">
+        <a href="mailto:contact@argushaus.com?subject=Network%20application" class="link-underline">Join the network</a>
+        <a href="https://calendly.com/scorpiussearch/discovery-meeting" class="link-underline" target="_blank" rel="noopener">Book a chat</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 — HOW WE WORK -->
+  <section class="screen" data-index="04" id="how">
+    <div class="screen-inner">
+      <span class="label">04 / How we work</span>
+      <h2 class="display">Precision plus speed.</h2>
+      <p class="body-line">
+        From brief to placement in four weeks. No cold restart per role. No proposal cycle.
+      </p>
+
+      <!-- Horizontal timeline -->
+      <ol class="timeline" aria-label="Argushaus placement timeline">
+        <li>
+          <span class="tl-day">Day 00</span>
+          <span class="tl-dot" aria-hidden="true"></span>
+          <span class="tl-action">Brief</span>
+          <span class="tl-note">Fifteen minutes on the phone</span>
+        </li>
+        <li>
+          <span class="tl-day">Day 00&ndash;07</span>
+          <span class="tl-dot" aria-hidden="true"></span>
+          <span class="tl-action">Mapping &middot; Selection calls &middot; Headhunting</span>
+          <span class="tl-note">Who is placeable, not who applies</span>
+        </li>
+        <li>
+          <span class="tl-day">Day 07&ndash;21</span>
+          <span class="tl-dot" aria-hidden="true"></span>
+          <span class="tl-action">Interviews</span>
+          <span class="tl-note">Fully briefed, calendar ready</span>
+        </li>
+        <li>
+          <span class="tl-day">Day 28</span>
+          <span class="tl-dot" aria-hidden="true"></span>
+          <span class="tl-action">Placement</span>
+          <span class="tl-note">Every candidate closed</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 05 — CITIES -->
+  <section class="screen" data-index="05" id="cities">
+    <div class="screen-inner">
+      <span class="label">05 / Cities</span>
+      <ul class="cities-stack">
+        <li>München</li>
+        <li>Berlin</li>
+        <li>Frankfurt</li>
+        <li>Düsseldorf &middot; Köln</li>
+        <li>Hamburg</li>
+        <li>Amsterdam</li>
+        <li>Rotterdam &middot; Utrecht &middot; Den Haag</li>
+        <li>Eindhoven</li>
+      </ul>
+      <p class="cities-note">Boutique AI consultancies across Germany and the Netherlands.</p>
+    </div>
+  </section>
+
+  <!-- 06 — ABOUT -->
+  <section class="screen" data-index="06" id="about">
+    <div class="screen-inner">
+      <span class="label">06 / About</span>
+      <h2 class="display">Founder-led. A team of veterans.</h2>
+      <p class="body-line">
+        Trained at some of the most renowned executive-search firms. Hands-on operational leadership of recruitment agencies across combined careers. More than five hundred candidates successfully placed.
+      </p>
+      <dl class="about-terms">
+        <div>
+          <dt>Fee</dt>
+          <dd>25% of first-year base salary. Invoiced on start date. No cure, no pay.</dd>
+        </div>
+        <div>
+          <dt>Guarantee</dt>
+          <dd>90-day free replacement.</dd>
+        </div>
+        <div>
+          <dt>Terms</dt>
+          <dd>No retainer. No exclusivity. NDA on file before any name is exchanged.</dd>
+        </div>
+        <div>
+          <dt>Group</dt>
+          <dd>Part of Scorpius Search.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 07 — CONTACT -->
+  <section class="screen" data-index="07" id="contact">
+    <div class="screen-inner">
+      <span class="label">07 / Contact</span>
+      <h2 class="display">Speak with us.</h2>
+      <ul class="contact-stack">
+        <li>
+          <a href="https://calendly.com/scorpiussearch/discovery-meeting" target="_blank" rel="noopener">Book a discovery call</a>
+          <span>Calendly &middot; 15 minutes</span>
+        </li>
+        <li>
+          <a href="mailto:contact@argushaus.com">contact@argushaus.com</a>
+          <span>General enquiries</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="fixbottom">
+  <a href="mailto:contact@argushaus.com" class="fixbottom-mail">contact@argushaus.com</a>
+  <span class="fixbottom-group">Part of the Scorpius Search group</span>
+</footer>
+
+<script src="/script.js" defer></script>
 </body>
 </html>

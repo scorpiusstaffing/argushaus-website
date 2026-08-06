@@ -75,7 +75,7 @@ const server = http.createServer((req, res) => {
       if (err2) { res.writeHead(500); res.end('Server error'); return; }
       res.writeHead(200, {
         'Content-Type': mime,
-        'Cache-Control': isHtml ? 'no-cache' : 'public, max-age=3600',
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
         'X-Content-Type-Options': 'nosniff',
         'X-Frame-Options': 'DENY',
         'Referrer-Policy': 'strict-origin-when-cross-origin',
