@@ -365,6 +365,7 @@ ul, ol { list-style: none; }
 .pool-agg-seg:nth-child(1) { background: var(--red); }
 .pool-agg-seg:nth-child(2) { background: var(--ink); }
 .pool-agg-seg:nth-child(3) { background: var(--muted); }
+.pool-agg-seg:nth-child(4) { background: var(--muted); opacity: 0.45; }
 .pool-agg-seg:hover { opacity: 0.75; }
 
 .pool-bars {
@@ -393,6 +394,7 @@ ul, ol { list-style: none; }
 .pool-bars li:nth-child(1)::before { background: var(--red); }
 .pool-bars li:nth-child(2)::before { background: var(--ink); }
 .pool-bars li:nth-child(3)::before { background: var(--muted); }
+.pool-bars li:nth-child(4)::before { background: var(--muted); opacity: 0.45; }
 
 .pool-tier {
   grid-column: 2;
@@ -850,14 +852,15 @@ ul, ol { list-style: none; }
   white-space: nowrap;
   margin-left: 1rem;
 }
-.cities-stack li:nth-child(1)::after { content: "DE / SOUTH"; }
+.cities-stack li:nth-child(1)::after { content: "DE / BAVARIA"; }
 .cities-stack li:nth-child(2)::after { content: "DE / CAPITAL"; }
 .cities-stack li:nth-child(3)::after { content: "DE / HESSEN"; }
-.cities-stack li:nth-child(4)::after { content: "DE / NRW"; }
-.cities-stack li:nth-child(5)::after { content: "DE / NORTH"; }
-.cities-stack li:nth-child(6)::after { content: "NL / CAPITAL"; }
-.cities-stack li:nth-child(7)::after { content: "NL / RANDSTAD"; }
-.cities-stack li:nth-child(8)::after { content: "NL / TECH"; }
+.cities-stack li:nth-child(4)::after { content: "DE / BADEN-WÜRTTEMBERG"; }
+.cities-stack li:nth-child(5)::after { content: "DE / NRW"; }
+.cities-stack li:nth-child(6)::after { content: "DE / NORTH"; }
+.cities-stack li:nth-child(7)::after { content: "NL / CAPITAL"; }
+.cities-stack li:nth-child(8)::after { content: "NL / RANDSTAD"; }
+.cities-stack li:nth-child(9)::after { content: "NL / TECH"; }
 
 .cities-stack li:hover { padding-left: 1.5rem; color: var(--red); }
 

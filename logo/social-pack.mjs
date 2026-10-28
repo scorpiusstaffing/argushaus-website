@@ -14,7 +14,7 @@ const CREAM_DK = '#D6CFBE';
 const RED      = '#C8362A';
 const MUTED    = '#5A5852';
 
-const TAGLINE = 'SENIOR AI TALENT';
+const TAGLINE = 'SENIOR CYBERSECURITY TALENT';
 const DIRECTORY = 'MÜNCHEN · BERLIN · FRANKFURT · DÜSSELDORF · KÖLN · HAMBURG';
 
 const wordmarkSvg = fs.readFileSync(path.join(__dirname, 'argushaus-wordmark.svg'), 'utf8');

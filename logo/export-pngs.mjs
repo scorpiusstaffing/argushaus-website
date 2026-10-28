@@ -45,7 +45,7 @@ function buildOgSvg() {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="${cream}"/>
   <g transform="translate(${offsetX}, ${offsetY}) scale(${scale})">${inner}</g>
-  <text x="80" y="565" font-family="Switzer, Helvetica, sans-serif" font-size="22" font-weight="500" fill="${ink}" opacity="0.6" letter-spacing="3" text-transform="uppercase">SENIOR AI TALENT · GERMAN CONSULTANCIES</text>
+  <text x="80" y="565" font-family="Switzer, Helvetica, sans-serif" font-size="22" font-weight="500" fill="${ink}" opacity="0.6" letter-spacing="3" text-transform="uppercase">SENIOR CYBERSECURITY TALENT · DE · NL</text>
 </svg>`;
 }
 
@@ -65,7 +65,7 @@ function buildSocialSquareSvg() {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
   <rect width="1080" height="1080" fill="${cream}"/>
   <g transform="translate(${offsetX}, ${offsetY}) scale(${scale})">${inner}</g>
-  <text x="540" y="${offsetY + scaledH + 80}" font-family="Switzer, Helvetica, sans-serif" font-size="26" font-weight="500" fill="${ink}" opacity="0.55" text-anchor="middle" letter-spacing="4">SENIOR AI TALENT · GERMAN CONSULTANCIES</text>
+  <text x="540" y="${offsetY + scaledH + 80}" font-family="Switzer, Helvetica, sans-serif" font-size="26" font-weight="500" fill="${ink}" opacity="0.55" text-anchor="middle" letter-spacing="4">SENIOR CYBERSECURITY TALENT · DE · NL</text>
 </svg>`;
 }
 
