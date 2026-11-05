@@ -176,7 +176,7 @@ ul, ol { list-style: none; }
 }
 
 /* ---------- HERO ---------- */
-.hero { padding-top: calc(var(--vpad) + 5rem); }
+.hero { padding-top: calc(var(--vpad) + 3rem); padding-bottom: calc(var(--vpad) + 4.5rem); }   /* three city lines stay clear of the scroll cue */
 .hero .screen-inner {
   align-items: center;
   text-align: center;
@@ -220,7 +220,7 @@ ul, ol { list-style: none; }
   max-width: 44ch;
 }
 .hero-cities {
-  margin-top: 3.25rem;
+  margin-top: 2rem;
   font-family: var(--mono);
   font-size: var(--fs-mono);
   font-weight: 500;
@@ -861,6 +861,8 @@ ul, ol { list-style: none; }
 .cities-stack li:nth-child(7)::after { content: "NL / CAPITAL"; }
 .cities-stack li:nth-child(8)::after { content: "NL / RANDSTAD"; }
 .cities-stack li:nth-child(9)::after { content: "NL / TECH"; }
+.cities-stack li:nth-child(10)::after { content: "BE / FLANDERS"; }
+.cities-stack li:nth-child(11)::after { content: "BE / FLANDERS"; }
 
 .cities-stack li:hover { padding-left: 1.5rem; color: var(--red); }
 
