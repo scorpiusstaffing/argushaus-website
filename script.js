@@ -7,7 +7,7 @@
     '.wordmark-tag, .wordmark-tagline, .hero-cities, ' +
     '.pool, .pillars, .mandates, .timeline, ' +
     '.cities-stack, .cities-note, ' +
-    '.about-terms, .contact-stack, .cta-row'
+    '.about-terms, .contact-stack, .cta-row, .media'
   );
   revealTargets.forEach(el => el.classList.add('reveal'));
 
@@ -31,6 +31,92 @@
   requestAnimationFrame(() => {
     if (wordmark) wordmark.classList.add('is-visible');
   });
+
+  /* Opening film. The <source> elements carry data-src and only get a src here:
+     with reduced motion or without script nothing is fetched and the still stays.
+     Paused while off screen; one pause and play control, remembered for the visit. */
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-video]').forEach(frame => {
+    const v = frame.querySelector('video');
+    const still = frame.querySelector('img');
+    const btn = frame.querySelector('.media-toggle');
+    if (!v || reduceMotion || !('IntersectionObserver' in window)) return;
+
+    let held = false;
+    try { held = sessionStorage.getItem('ah-video') === 'paused'; } catch (e) {}
+    let attached = false;
+    let onScreen = false;
+
+    const sync = () => {
+      if (!btn) return;
+      btn.setAttribute('data-paused', v.paused ? '1' : '0');
+      btn.setAttribute('aria-label', v.paused ? 'Play video' : 'Pause video');
+    };
+    const play = () => { const p = v.play(); if (p && p.catch) p.catch(sync); };
+    const attach = () => {
+      if (attached) return;
+      attached = true;
+      if (still && still.currentSrc) v.poster = still.currentSrc;   /* already loaded, no second fetch */
+      const sources = Array.from(v.querySelectorAll('source[data-src]'));
+      const pick = sources.find(s => !s.dataset.media || window.matchMedia(s.dataset.media).matches);
+      sources.forEach(s => { if (s !== pick) s.remove(); });
+      if (!pick) return;
+      pick.src = pick.dataset.src;
+      v.autoplay = false;               /* play only while on screen */
+      v.load();
+      if (btn) btn.hidden = false;
+      if (onScreen && !held) play();
+      sync();
+    };
+
+    v.addEventListener('playing', () => { frame.classList.add('is-playing'); sync(); });
+    v.addEventListener('pause', sync);
+
+    attach();                           /* the film is the first screen: load it straight away */
+
+    new IntersectionObserver(entries => {
+      onScreen = entries[0].isIntersecting;
+      if (!attached) return;
+      if (onScreen && !held) play(); else v.pause();
+    }, { threshold: 0 }).observe(frame);
+
+    if (btn) btn.addEventListener('click', () => {
+      held = !v.paused;
+      try { sessionStorage.setItem('ah-video', held ? 'paused' : 'playing'); } catch (e) {}
+      if (held) v.pause(); else play();
+    });
+  });
+
+  /* Marginalia over a picture: toggle the cream plate while they overlap a frame. */
+  /* Over the dark opening screen (and the upper half of its fade) they turn cream. */
+  const marks = Array.from(document.querySelectorAll('.fixtop > *, .fixbottom > *, .counter'));
+  const frames = Array.from(document.querySelectorAll('.media'));
+  const hero = document.querySelector('.hero');
+  if (marks.length) {
+    let ticking = false;
+    const check = () => {
+      ticking = false;
+      const boxes = frames.map(f => f.getBoundingClientRect());
+      let dark = null;
+      if (hero) {
+        const h = hero.getBoundingClientRect();
+        const tail = parseFloat(getComputedStyle(hero, '::after').height) || 0;
+        dark = { top: h.top, bottom: h.bottom + tail * 0.45 };
+      }
+      marks.forEach(m => {
+        const r = m.getBoundingClientRect();
+        const mid = (r.top + r.bottom) / 2;
+        const onDark = !!dark && mid > dark.top && mid < dark.bottom;
+        const over = !onDark && boxes.some(b => r.right > b.left && r.left < b.right && r.bottom > b.top && r.top < b.bottom);
+        m.classList.toggle('on-dark', onDark);
+        m.classList.toggle('over-media', over);
+      });
+    };
+    const queue = () => { if (!ticking) { ticking = true; requestAnimationFrame(check); } };
+    window.addEventListener('scroll', queue, { passive: true });
+    window.addEventListener('resize', queue);
+    check();
+  }
 
   const counterEl = document.getElementById('counter-current');
   const screens   = Array.from(document.querySelectorAll('.screen[data-index]'));
