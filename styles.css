@@ -119,11 +119,11 @@ ul, ol { list-style: none; }
   .fixbottom { bottom: 1.2rem; }
   .counter { bottom: 3.5rem; font-size: 0.62rem; }
 }
-/* narrow phones: mail and group line stack instead of colliding */
-@media (max-width: 420px) {
-  .fixbottom { flex-direction: column-reverse; align-items: flex-start; gap: 0.45rem; }
-  .fixbottom > * { white-space: nowrap; }
-  .counter { bottom: 4.6rem; }
+/* phones: nothing floats over the content. The top bar scrolls away with the page,
+   the bottom bar and the counter are dropped (mail and group line sit in the page itself) */
+@media (max-width: 640px) {
+  .fixtop { position: absolute; }
+  .fixbottom, .counter { display: none; }
 }
 
 /* ---------- Section shell ---------- */
@@ -235,6 +235,15 @@ ul, ol { list-style: none; }
   color: var(--muted);
   line-height: 1.9;
 }
+.hc-row { display: flex; flex-wrap: wrap; justify-content: center; }
+.hc-row > span { white-space: nowrap; }
+.hc-row > span + span::before { content: "\00B7"; margin: 0 0.75em; }
+@media (max-width: 640px) {
+  .hero-cities { line-height: 1.75; letter-spacing: 0.12em; }
+  .hc-row { column-gap: 1.7em; }
+  .hc-row + .hc-row { margin-top: 0.55em; }
+  .hc-row > span + span::before { content: none; }
+}
 .scroll-cue {
   position: absolute;
   bottom: 5rem;
@@ -297,7 +306,7 @@ ul, ol { list-style: none; }
 .link-underline::before {
   content: "→";
   display: inline-block;
-  margin-left: 0.55rem;
+  margin-right: 0.55rem;
   transition: transform 0.3s ease;
 }
 .link-underline:hover::after { transform: scaleX(0.4); }
@@ -1137,3 +1146,10 @@ ul, ol { list-style: none; }
 .fixbottom-mail.on-dark { border-bottom-color: var(--cream); }
 .counter.on-dark, .counter.on-dark .counter-slash, .counter.on-dark .counter-total { color: rgb(232 226 212 / .85); }
 .fixtop > *, .fixbottom > *, .counter { transition: opacity 0.2s ease, color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease; }
+
+/* phones: sections take the height of their content instead of a full screen each (the hero
+   keeps its full screen); a separator that would wrap becomes a line break */
+@media (max-width: 640px) {
+  .screen:not(.hero) { min-height: 0; padding-top: 4.5rem; padding-bottom: 4.5rem; }
+  .brk { display: block; height: 0; overflow: hidden; }
+}
