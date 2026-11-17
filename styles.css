@@ -207,8 +207,7 @@ ul, ol { list-style: none; }
   transform: translateY(0);
 }
 .red-block { color: var(--red); font-weight: 700; }
-.wordmark { display: flex; align-items: center; gap: 0.16em; }
-.wordmark-mark { height: 0.98em; width: 0.98em; flex: none; margin-left: -0.08em; }
+
 
 .wordmark-tag {
   margin-top: 1.75rem;
