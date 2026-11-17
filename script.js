@@ -116,6 +116,7 @@
     window.addEventListener('scroll', queue, { passive: true });
     window.addEventListener('resize', queue);
     check();
+    document.documentElement.classList.add('marks-ready');
   }
 
   const counterEl = document.getElementById('counter-current');

@@ -1111,7 +1111,7 @@ ul, ol { list-style: none; }
 
 .hero .wordmark { color: var(--cream); }
 .hero .wordmark-tag { color: var(--cream); opacity: 0.86; }
-.hero .wordmark-tagline { color: rgb(232 226 212 / .84); }
+.hero .wordmark-tagline { color: rgb(232 226 212 / .84); max-width: 47ch; }
 .hero .hero-cities { color: rgb(232 226 212 / .72); }
 .hero .scroll-cue { color: var(--cream); opacity: 0.6; }
 .hero .cue-line { background: var(--cream); }
@@ -1156,3 +1156,21 @@ ul, ol { list-style: none; }
   .screen:not(.hero) { min-height: 0; padding-top: 4.5rem; padding-bottom: 4.5rem; }
   .brk { display: block; height: 0; overflow: hidden; }
 }
+
+
+/* Hero: the corner brand stays out of the opening film; the big name carries it there.
+   It fades in once the page scrolls past the film (desktop). On phones the top bar
+   sits on the film only, so the corner brand is simply absent there. */
+.fixtop > .brand-mini.on-dark { opacity: 0; pointer-events: none; }
+
+/* Sign-off: the pixel A closes the page, quiet and small, under the contact lines */
+.signoff { margin-top: clamp(3.5rem, 8vw, 6rem); color: var(--ink); }
+.signoff-mark { display: block; }
+/* no flash of the corner brand before the script has placed it */
+html:not(.marks-ready) .fixtop > .brand-mini { opacity: 0; }
+@media (max-width: 640px) { .fixtop > .brand-mini { visibility: hidden; } }
+
+/* Hero wordmark: the pixel A stands in for the first letter. Sized to the cap height
+   of the type, sitting on the baseline. The real word stays in the page for readers. */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.wordmark .wm-a { display: inline-block; height: 0.71em; width: auto; aspect-ratio: 68.06 / 77.24; vertical-align: 0; margin-right: -0.02em; color: #F6F2E8; }
