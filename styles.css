@@ -1170,7 +1170,6 @@ ul, ol { list-style: none; }
 html:not(.marks-ready) .fixtop > .brand-mini { opacity: 0; }
 @media (max-width: 640px) { .fixtop > .brand-mini { visibility: hidden; } }
 
-/* Hero wordmark: the pixel A stands in for the first letter. Sized to the cap height
-   of the type, sitting on the baseline. The real word stays in the page for readers. */
+/* Hero wordmark: plain letters since 2026-11-25; the pixel A lives on as the separate mark. */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .wordmark .wm-a { display: inline-block; height: 0.71em; width: auto; aspect-ratio: 68.06 / 77.24; vertical-align: 0; margin-right: -0.02em; color: #F6F2E8; }
